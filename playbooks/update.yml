@@ -1,0 +1,21 @@
+
+---
+- name: Basic setup for Amazon Linux
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Update all packages
+      yum:
+        name: '*'
+        state: latest
+
+    - name: Install essential packages
+      yum:
+        name:
+          - git
+          - wget
+          - unzip
+          - tree
+        state: present
+

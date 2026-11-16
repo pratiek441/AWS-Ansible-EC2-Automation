@@ -1,0 +1,12 @@
+# AWS private keys
+*.pem
+
+# Ansible retry files
+*.retry
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Local inventory containing actual server IPs
+inventory/hosts

@@ -1,0 +1,22 @@
+---
+- name: Install and configure Apache on Amazon Linux
+  hosts: dev
+  become: true
+
+  tasks:
+    - name: Install Apache (httpd)
+      yum:
+        name: httpd
+        state: present
+
+    - name: Start and enable Apache service
+      systemd:
+        name: httpd
+        state: started
+        enabled: true
+
+    - name: Deploy index.html
+      copy:
+        content: "<h1>Hello from Ansible on Amazon Linux</h1>"
+        dest: /var/www/html/index.html
+        mode: '0644'
